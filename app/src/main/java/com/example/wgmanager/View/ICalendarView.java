@@ -1,11 +1,10 @@
 package com.example.wgmanager.View;
 
-import com.example.wgmanager.Controller.UserAuthenticationController;
+public interface ICalendarView {
 
-public interface ILoginView {
+    //Charly
 
     void showUserDetails(String message);
 
     void loadNewActivity(Class activityClass);
-
 }

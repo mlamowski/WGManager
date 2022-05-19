@@ -1,29 +1,25 @@
 package com.example.wgmanager.Controller;
 
-import android.content.Intent;
-
 import com.example.wgmanager.Model.User;
+import com.example.wgmanager.View.ICalendarView;
 import com.example.wgmanager.View.IHomeview;
-import com.example.wgmanager.View.MainActivity;
-import com.example.wgmanager.View.RegisterActivity;
 
-public class UserController {
+public class EventController {
 
-    //Giuliano
+    //Charly
 
     private User user;
-    private IHomeview homeView;
+    private ICalendarView calView;
 
     //User Daten werden noch nicht automatisch hinzugefügt. Du musst erstmal mit Dummy Daten arbeiten, ich mach das noch.
 
-    public UserController(IHomeview view) {
-        super();
-        this.homeView = view;
+    public EventController(ICalendarView calView) {
+        this.calView = calView;
     }
 
     //Greift auf Funktion von View zu.
     public void loadNewPage(Class activityClass) {
-        homeView.loadNewActivity(activityClass);
+        calView.loadNewActivity(activityClass);
     }
 
     //Greift auf Funktion von View zu.
@@ -31,5 +27,4 @@ public class UserController {
     public void updateView() {
 
     }
-
 }

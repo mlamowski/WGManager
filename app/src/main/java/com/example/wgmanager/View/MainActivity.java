@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements ILoginView{
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userAuthenticationController.onLogin(username.getText().toString(), password.getText().toString());
+                userAuthenticationController.onLogin(username.getText().toString(), password.getText().toString(), HomeActivity.class);
                 userAuthenticationController.updateView();
             }
         });
@@ -49,22 +49,23 @@ public class MainActivity extends AppCompatActivity implements ILoginView{
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userAuthenticationController.ToRegister();
+
+                userAuthenticationController.ToRegister(RegisterActivity.class);
             }
         });
 
     }
 
     @Override
-    public void showUserDetails(String user) {
-        Toast.makeText(MainActivity.this, user, Toast.LENGTH_LONG).show();
+    public void showUserDetails(String message) {
+        Toast.makeText(MainActivity.this, "Anmeldung erfolgreich", Toast.LENGTH_LONG).show();
 
     }
 
     @Override
-    public void loadNewActivity() {
+    public void loadNewActivity(Class activityClass) {
         //TODO : Ziel Activity übergeben.
-        Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+        Intent intent = new Intent(this, activityClass);
         String usernameForRegister = username.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, usernameForRegister);
         startActivity(intent);

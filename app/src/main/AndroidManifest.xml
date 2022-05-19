@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WGManager">
         <activity
+            android:name=".View.CalendarView"
+            android:exported="false" />
+        <activity
             android:name=".View.HomeActivity"
             android:exported="false" />
         <activity

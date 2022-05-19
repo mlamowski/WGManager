@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity implements ILoginView{
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userAuthenticationController.onRegister(username.getText().toString(), password.getText().toString());
+                userAuthenticationController.onRegister(username.getText().toString(), password.getText().toString(), HomeActivity.class);
                 userAuthenticationController.updateView();
                 //TODO Controller aufrufen für Seitenwechsel
 
@@ -51,13 +51,14 @@ public class RegisterActivity extends AppCompatActivity implements ILoginView{
     }
 
     @Override
-    public void showUserDetails(String user) {
-        Toast.makeText(RegisterActivity.this, user, Toast.LENGTH_LONG).show();
+    public void showUserDetails(String message) {
+        Toast.makeText(RegisterActivity.this, "Registrierung erfolgreich", Toast.LENGTH_LONG).show();
 
     }
 
     @Override
-    public void loadNewActivity() {
-        //TODO zur Startseite
+    public void loadNewActivity(Class activityClass) {
+        Intent intent = new Intent(this, activityClass);
+        startActivity(intent);
     }
 }
