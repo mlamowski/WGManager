@@ -2,7 +2,7 @@ package com.example.wgmanager.Model;
 
 public class User {
 
-    private String email; //HALLO GEHT DAS
+    private String email; //HALLO GEHT DAS, zweiter Test
     private String username;
     private String password;
 
