@@ -73,7 +73,6 @@ public class LoginActivity extends AppCompatActivity implements IView {
 
     @Override
     public void loadNewActivity(Class activityClass) {
-        //TODO : Ziel Activity übergeben.
         Intent intent = new Intent(this, activityClass);
         String usernameForRegister = username.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, usernameForRegister);

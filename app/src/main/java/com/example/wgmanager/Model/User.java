@@ -2,6 +2,7 @@ package com.example.wgmanager.Model;
 
 public class User {
 
+    //TODO: Group, Event etc einfügen
     private int id;
     private String email;
     private String username;

@@ -1,6 +1,6 @@
 package com.example.wgmanager.Controller;
 
-public interface Controller {
+public interface IController {
 
     public void updateView(String message);
 

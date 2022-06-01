@@ -6,7 +6,7 @@ import com.example.wgmanager.Model.CurrentUser;
 import com.example.wgmanager.View.MainActivity;
 import com.example.wgmanager.View.IView;
 
-public class UserAuthenticationController implements Controller {
+public class UserAuthenticationController implements IController {
 
     private IView view;
     private CurrentUser currentUser = CurrentUser.getInstance();
@@ -19,8 +19,6 @@ public class UserAuthenticationController implements Controller {
     }
 
     public void onLogin(String username, String password, Class activityClass, Context context) {
-        //TODO: validate
-
         if(validateService.validateLogin(username, password)) {
 
             //TODO: Nicht neu erstellen, sondern nach usernamen suchen.
@@ -42,8 +40,6 @@ public class UserAuthenticationController implements Controller {
     }
 
     public void onRegister(String username, String password, Class activityClass) {
-        //TODO: validate
-
         if(validateService.validateRegister(username, password)) {
 
             currentUser.createUser(username, password);

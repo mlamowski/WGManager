@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.wgmanager.Controller.EventController;
-import com.example.wgmanager.Controller.UserController;
 import com.example.wgmanager.R;
 
 

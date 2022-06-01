@@ -6,7 +6,7 @@ import com.example.wgmanager.Model.CurrentUser;
 import com.example.wgmanager.View.IView;
 import com.example.wgmanager.View.LoginActivity;
 
-public class UserController implements Controller {
+public class UserController implements IController {
 
     //Giuliano
 

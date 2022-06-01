@@ -3,7 +3,7 @@ package com.example.wgmanager.Controller;
 import com.example.wgmanager.Model.CurrentUser;
 import com.example.wgmanager.View.IView;
 
-public class EventController implements Controller{
+public class EventController implements IController {
 
     //Charly
 
