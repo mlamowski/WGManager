@@ -1,21 +1,19 @@
 package com.example.wgmanager.Controller;
 
-import android.content.Intent;
+import android.content.Context;
 
+import com.example.wgmanager.Model.CurrentUser;
 import com.example.wgmanager.Model.User;
-import com.example.wgmanager.View.HomeActivity;
-import com.example.wgmanager.View.ILoginView;
 import com.example.wgmanager.View.MainActivity;
-import com.example.wgmanager.View.RegisterActivity;
+import com.example.wgmanager.View.IView;
 
 public class UserAuthenticationController {
 
-    ILoginView view;
-
+    IView view;
     public User user;
-    private UserController userController;
+    private CurrentUser currentUser;
 
-    public UserAuthenticationController(ILoginView view) {
+    public UserAuthenticationController(IView view) {
         this.view = view;
     }
 
@@ -23,7 +21,7 @@ public class UserAuthenticationController {
     public void onLogin(String username, String password, Class activityClass) {
         //TODO: validate
         user = new User(username, password);
-        //userController = new UserController(user);
+        //TODO: Create SessionManager und übergib User
         loadNewPage(activityClass);
 
     }
@@ -36,9 +34,10 @@ public class UserAuthenticationController {
     public void onRegister(String username, String password, Class activityClass) {
         //TODO: validate
         user = new User(username, password);
-        //TODO: Update Model --> Singleton
-        //userController = new UserController(user);
-        loadNewPage(HomeActivity.class);
+        //TODO: Instanciate Singleton CurrentUser
+        currentUser = CurrentUser.getInstance();
+        currentUser.createUser(username, password);
+        loadNewPage(activityClass);
 
     }
 

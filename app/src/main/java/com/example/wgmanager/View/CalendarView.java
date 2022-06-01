@@ -9,7 +9,7 @@ import com.example.wgmanager.Controller.UserController;
 import com.example.wgmanager.R;
 
 
-public class CalendarView extends AppCompatActivity implements ICalendarView {
+public class CalendarView extends AppCompatActivity implements IView {
 
     //Charly
 

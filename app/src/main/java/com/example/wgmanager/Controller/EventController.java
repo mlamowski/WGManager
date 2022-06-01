@@ -1,20 +1,28 @@
 package com.example.wgmanager.Controller;
 
+import com.example.wgmanager.Model.CurrentUser;
 import com.example.wgmanager.Model.User;
-import com.example.wgmanager.View.ICalendarView;
-import com.example.wgmanager.View.IHomeview;
+import com.example.wgmanager.View.IView;
 
 public class EventController {
 
     //Charly
 
-    private User user;
-    private ICalendarView calView;
+    private IView calView;
+    //CurrentUser hält alle Daten zur Laufzeit
+    private CurrentUser currentUser;
 
-    //User Daten werden noch nicht automatisch hinzugefügt. Du musst erstmal mit Dummy Daten arbeiten, ich mach das noch.
 
-    public EventController(ICalendarView calView) {
+    public EventController(IView calView) {
         this.calView = calView;
+    }
+
+    //Hier wird eine Instanz von CurrentUser erzeugt. Die Instanz ist überall gleich!
+    public String getCurrentUser() {
+        currentUser = CurrentUser.getInstance();
+        return currentUser.retrieveUser();
+
+
     }
 
     //Greift auf Funktion von View zu.

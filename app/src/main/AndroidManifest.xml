@@ -13,13 +13,13 @@
             android:name=".View.CalendarView"
             android:exported="false" />
         <activity
-            android:name=".View.HomeActivity"
+            android:name=".View.MainActivity"
             android:exported="false" />
         <activity
             android:name=".View.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".View.MainActivity"
+            android:name=".View.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

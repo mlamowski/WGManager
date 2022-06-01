@@ -14,7 +14,7 @@ import com.example.wgmanager.Controller.UserAuthenticationController;
 import com.example.wgmanager.R;
 
 
-public class RegisterActivity extends AppCompatActivity implements ILoginView{
+public class RegisterActivity extends AppCompatActivity implements IView {
 
     EditText username, password;
     Button registerButton;
@@ -34,16 +34,15 @@ public class RegisterActivity extends AppCompatActivity implements ILoginView{
         registerButton = (Button) findViewById(R.id.button_register_reg);
 
         Intent intent = getIntent();
-        String usernameString = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        String usernameString = intent.getStringExtra(LoginActivity.EXTRA_MESSAGE);
 
         username.setText(usernameString, TextView.BufferType.EDITABLE);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userAuthenticationController.onRegister(username.getText().toString(), password.getText().toString(), HomeActivity.class);
+                userAuthenticationController.onRegister(username.getText().toString(), password.getText().toString(), MainActivity.class);
                 userAuthenticationController.updateView();
-                //TODO Controller aufrufen für Seitenwechsel
 
             }
         });
@@ -52,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity implements ILoginView{
 
     @Override
     public void showUserDetails(String message) {
-        Toast.makeText(RegisterActivity.this, "Registrierung erfolgreich", Toast.LENGTH_LONG).show();
+        //Toast.makeText(RegisterActivity.this, "Registrierung erfolgreich", Toast.LENGTH_LONG).show();
 
     }
 
