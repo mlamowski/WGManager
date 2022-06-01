@@ -5,28 +5,32 @@ import android.content.SharedPreferences;
 
 import com.example.wgmanager.Model.User;
 
-public class SessionManager {
+public class SessionService {
 
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-    public static final String SHARED_PREF_NAME = "session";
-    public static final String SESSION_NAME = "session_user";
 
-    public SessionManager(Context context) {
+    String SHARED_PREF_NAME = "shared_prefs";
+    String NAME_KEY = "name_key";
+
+
+    public SessionService(Context context) {
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
     }
 
     public void saveSession(User user) {
-        String userName = user.getUsername();
-
-        editor.putString(SESSION_NAME, userName);
-
-        editor.apply();
+        editor.putString(NAME_KEY, user.getUsername()).commit();
     }
 
     public String getSession() {
-        return SESSION_NAME;
+        return sharedPreferences.getString(NAME_KEY, null);
+        //return sharedPreferences.getInt(SESSION_KEY, -1);
+    }
+
+    public void removeSession() {
+        editor.clear();
+        editor.apply();
     }
 
 }

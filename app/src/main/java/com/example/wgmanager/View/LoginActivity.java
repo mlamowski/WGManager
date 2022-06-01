@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.wgmanager.Controller.UserAuthenticationController;
@@ -25,9 +24,18 @@ public class LoginActivity extends AppCompatActivity implements IView {
 
 
     @Override
+    protected void onStart() {
+        super.onStart();
+
+        userAuthenticationController.checkSession();
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
         username = (EditText) findViewById(R.id.usernameView);
         password = (EditText) findViewById(R.id.passwordView);
@@ -35,13 +43,13 @@ public class LoginActivity extends AppCompatActivity implements IView {
         loginButton = (Button) findViewById(R.id.button_login);
         registerButton = (Button) findViewById(R.id.button_register);
 
-        userAuthenticationController = new UserAuthenticationController(this);
+        userAuthenticationController = new UserAuthenticationController(this, this);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userAuthenticationController.onLogin(username.getText().toString(), password.getText().toString(), MainActivity.class);
-                userAuthenticationController.updateView();
+
+                userAuthenticationController.onLogin(username.getText().toString(), password.getText().toString(), MainActivity.class, LoginActivity.this);
             }
         });
 
@@ -55,9 +63,11 @@ public class LoginActivity extends AppCompatActivity implements IView {
 
     }
 
+
+
     @Override
     public void showUserDetails(String message) {
-        Toast.makeText(LoginActivity.this, "Anmeldung erfolgreich, Willkommen " + message, Toast.LENGTH_LONG).show();
+        Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
 
     }
 
@@ -69,4 +79,6 @@ public class LoginActivity extends AppCompatActivity implements IView {
         intent.putExtra(EXTRA_MESSAGE, usernameForRegister);
         startActivity(intent);
     }
+
+
 }

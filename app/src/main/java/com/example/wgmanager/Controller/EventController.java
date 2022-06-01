@@ -31,7 +31,7 @@ public class EventController implements Controller{
 
     //Greift auf Funktion von View zu.
 
-    public void updateView() {
+    public void updateView(String message) {
 
     }
 }

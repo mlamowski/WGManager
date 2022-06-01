@@ -24,7 +24,7 @@ public class CalendarView extends AppCompatActivity implements IView {
         eventController = new EventController(this);
 
         //Beispielfunktion von Controller wird aufgerufen
-        eventController.updateView();
+        //eventController.updateView();
     }
 
     @Override

@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity implements IView{
     //Giuliano
 
     Button button;
+    Button logout_button;
+
     TextView userName_view;
 
     //HomeActivity hat Controller
@@ -29,10 +31,12 @@ public class MainActivity extends AppCompatActivity implements IView{
 
         userName_view = (TextView) findViewById(R.id.username_textview);
         button = (Button) findViewById(R.id.button);
+        logout_button = (Button) findViewById(R.id.logout_btn);
+
 
 
         //Controller wird erstellt
-        userController = new UserController(this);
+        userController = new UserController(this, this);
 
         userName_view.setText(userController.getCurrentUserName());
 
@@ -43,7 +47,14 @@ public class MainActivity extends AppCompatActivity implements IView{
                 userController.loadNewPage(CalendarView.class);
 
                 //Beispielfunktion von Controller wird aufgerufen
-                userController.updateView();
+                //userController.updateView();
+            }
+        });
+
+        logout_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userController.logout();
             }
         });
 

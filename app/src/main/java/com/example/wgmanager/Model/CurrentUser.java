@@ -22,7 +22,7 @@ public class CurrentUser implements ICurrentUser{
     //Normal Object Code
 
     public User retrieveUser() {
-
+        //Lade gesuchten User aus DB
         return user;
     }
 

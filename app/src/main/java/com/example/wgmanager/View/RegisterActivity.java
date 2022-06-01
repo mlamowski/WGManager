@@ -26,7 +26,7 @@ public class RegisterActivity extends AppCompatActivity implements IView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        userAuthenticationController = new UserAuthenticationController(this);
+        userAuthenticationController = new UserAuthenticationController(this, this);
 
         username = (EditText) findViewById(R.id.usernameViewReg);
         password = (EditText) findViewById(R.id.passwordViewReg);
@@ -42,7 +42,7 @@ public class RegisterActivity extends AppCompatActivity implements IView {
             @Override
             public void onClick(View view) {
                 userAuthenticationController.onRegister(username.getText().toString(), password.getText().toString(), MainActivity.class);
-                userAuthenticationController.updateView();
+                //userAuthenticationController.updateView();
 
             }
         });
@@ -51,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity implements IView {
 
     @Override
     public void showUserDetails(String message) {
-        Toast.makeText(RegisterActivity.this, "Registrierung erfolgreich, Willkommen " + message, Toast.LENGTH_LONG).show();
+        Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_LONG).show();
 
     }
 
