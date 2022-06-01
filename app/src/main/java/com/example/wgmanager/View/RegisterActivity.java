@@ -51,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity implements IView {
 
     @Override
     public void showUserDetails(String message) {
-        //Toast.makeText(RegisterActivity.this, "Registrierung erfolgreich", Toast.LENGTH_LONG).show();
+        Toast.makeText(RegisterActivity.this, "Registrierung erfolgreich, Willkommen " + message, Toast.LENGTH_LONG).show();
 
     }
 

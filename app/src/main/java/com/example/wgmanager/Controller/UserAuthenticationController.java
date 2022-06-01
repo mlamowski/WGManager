@@ -7,21 +7,21 @@ import com.example.wgmanager.Model.User;
 import com.example.wgmanager.View.MainActivity;
 import com.example.wgmanager.View.IView;
 
-public class UserAuthenticationController {
+public class UserAuthenticationController implements Controller {
 
-    IView view;
-    public User user;
+    private IView view;
     private CurrentUser currentUser;
 
     public UserAuthenticationController(IView view) {
         this.view = view;
     }
 
-
     public void onLogin(String username, String password, Class activityClass) {
         //TODO: validate
-        user = new User(username, password);
         //TODO: Create SessionManager und übergib User
+
+        currentUser = CurrentUser.getInstance();
+        currentUser.createUser(username, password);
         loadNewPage(activityClass);
 
     }
@@ -33,8 +33,8 @@ public class UserAuthenticationController {
 
     public void onRegister(String username, String password, Class activityClass) {
         //TODO: validate
-        user = new User(username, password);
-        //TODO: Instanciate Singleton CurrentUser
+        //TODO: Create SessionManager und übergib User
+
         currentUser = CurrentUser.getInstance();
         currentUser.createUser(username, password);
         loadNewPage(activityClass);
@@ -42,8 +42,7 @@ public class UserAuthenticationController {
     }
 
     public void updateView() {
-
-        view.showUserDetails(user.getUsername());
+        view.showUserDetails(currentUser.retrieveUser().getUsername());
     }
 
     public void loadNewPage(Class activityClass) {

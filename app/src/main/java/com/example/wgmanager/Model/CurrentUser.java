@@ -1,6 +1,6 @@
 package com.example.wgmanager.Model;
 
-public class CurrentUser {
+public class CurrentUser implements ICurrentUser{
 
     //CurrentUser hält alle Daten zur Laufzeit.
 
@@ -21,8 +21,9 @@ public class CurrentUser {
 
     //Normal Object Code
 
-    public String retrieveUser() {
-        return user.getUsername();
+    public User retrieveUser() {
+
+        return user;
     }
 
     public void updateUser() {

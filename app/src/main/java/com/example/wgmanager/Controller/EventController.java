@@ -1,33 +1,32 @@
 package com.example.wgmanager.Controller;
 
 import com.example.wgmanager.Model.CurrentUser;
-import com.example.wgmanager.Model.User;
 import com.example.wgmanager.View.IView;
 
-public class EventController {
+public class EventController implements Controller{
 
     //Charly
 
-    private IView calView;
+    private IView View;
     //CurrentUser hält alle Daten zur Laufzeit
     private CurrentUser currentUser;
 
 
-    public EventController(IView calView) {
-        this.calView = calView;
+    public EventController(IView View) {
+        this.View = View;
     }
 
     //Hier wird eine Instanz von CurrentUser erzeugt. Die Instanz ist überall gleich!
     public String getCurrentUser() {
         currentUser = CurrentUser.getInstance();
-        return currentUser.retrieveUser();
+        return currentUser.retrieveUser().getUsername();
 
 
     }
 
     //Greift auf Funktion von View zu.
     public void loadNewPage(Class activityClass) {
-        calView.loadNewActivity(activityClass);
+        View.loadNewActivity(activityClass);
     }
 
     //Greift auf Funktion von View zu.

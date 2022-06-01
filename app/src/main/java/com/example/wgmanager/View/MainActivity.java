@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements IView{
         //Controller wird erstellt
         userController = new UserController(this);
 
-        userName_view.setText(userController.getCurrentUser());
+        userName_view.setText(userController.getCurrentUserName());
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements IView{
     //Funktion, die von Controller aufgerufen werden soll, um View upzudaten
     @Override
     public void showUserDetails(String user) {
-        Toast.makeText(MainActivity.this, userController.getCurrentUser(), Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.this, userController.getCurrentUserName(), Toast.LENGTH_LONG).show();
     }
 
     //Funktion, die von Controller aufgerufen werden soll, um neue Seite zu laden

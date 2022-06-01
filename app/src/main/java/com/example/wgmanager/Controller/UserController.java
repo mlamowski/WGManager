@@ -1,33 +1,32 @@
 package com.example.wgmanager.Controller;
 
 import com.example.wgmanager.Model.CurrentUser;
-import com.example.wgmanager.Model.User;
 import com.example.wgmanager.View.IView;
 
-public class UserController {
+public class UserController implements Controller {
 
     //Giuliano
 
-    IView homeView;
+    IView View;
     //CurrentUser hält alle Daten zur Laufzeit
     private CurrentUser currentUser;
 
     public UserController(IView view) {
         super();
-        this.homeView = view;
+        this.View = view;
     }
 
     //Hier wird eine Instanz von CurrentUser erzeugt. Die Instanz ist überall gleich!
-    public String getCurrentUser() {
+    public String getCurrentUserName() {
         currentUser = CurrentUser.getInstance();
-        return currentUser.retrieveUser();
+        return currentUser.retrieveUser().getUsername();
 
 
     }
 
     //Greift auf Funktion von View zu.
     public void loadNewPage(Class activityClass) {
-        homeView.loadNewActivity(activityClass);
+        View.loadNewActivity(activityClass);
     }
 
     //Greift auf Funktion von View zu.

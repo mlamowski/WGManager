@@ -19,7 +19,6 @@ public class LoginActivity extends AppCompatActivity implements IView {
 
     EditText username, password;
     Button loginButton, registerButton;
-    TextView userDetails;
     UserAuthenticationController userAuthenticationController;
 
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
@@ -35,8 +34,6 @@ public class LoginActivity extends AppCompatActivity implements IView {
 
         loginButton = (Button) findViewById(R.id.button_login);
         registerButton = (Button) findViewById(R.id.button_register);
-
-        userDetails = (TextView) findViewById(R.id.userDetailsView);
 
         userAuthenticationController = new UserAuthenticationController(this);
 
@@ -60,7 +57,7 @@ public class LoginActivity extends AppCompatActivity implements IView {
 
     @Override
     public void showUserDetails(String message) {
-        Toast.makeText(LoginActivity.this, "Anmeldung erfolgreich", Toast.LENGTH_LONG).show();
+        Toast.makeText(LoginActivity.this, "Anmeldung erfolgreich, Willkommen " + message, Toast.LENGTH_LONG).show();
 
     }
 
