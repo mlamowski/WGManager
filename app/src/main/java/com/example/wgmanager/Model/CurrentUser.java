@@ -30,6 +30,10 @@ public class CurrentUser implements ICurrentUser{
         //Aktueller User geupdatet
     }
 
+    public void updatePassword(String password) {
+        user.setPassword(password);
+    }
+
     public void createUser(String username, String password) {
         user = new User(username, password);
     }

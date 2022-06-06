@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WGManager">
         <activity
+            android:name=".View.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.GroupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.UserActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.CalendarView"
             android:exported="false" />
         <activity

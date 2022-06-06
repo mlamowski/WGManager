@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity implements IView{
 
     Button button;
     Button logout_button;
+    Button userPage;
+    Button groupPage;
 
     TextView userName_view;
 
@@ -30,10 +32,12 @@ public class MainActivity extends AppCompatActivity implements IView{
         setContentView(R.layout.activity_main);
 
         userName_view = (TextView) findViewById(R.id.username_textview);
+
+        //BUTTONS
         button = (Button) findViewById(R.id.button);
+        userPage = (Button) findViewById(R.id.button_user);
+        groupPage = (Button) findViewById(R.id.button_grroup);
         logout_button = (Button) findViewById(R.id.logout_btn);
-
-
 
         //Controller wird erstellt
         userController = new UserController(this, this);
@@ -51,9 +55,24 @@ public class MainActivity extends AppCompatActivity implements IView{
             }
         });
 
+        userPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userController.loadNewPage(UserActivity.class);
+            }
+        });
+
+        groupPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userController.loadNewPage(GroupActivity.class);
+            }
+        });
+
         logout_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 userController.logout();
             }
         });

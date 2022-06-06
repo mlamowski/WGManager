@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity implements IView {
     protected void onStart() {
         super.onStart();
 
+        userAuthenticationController = new UserAuthenticationController(this, this);
         userAuthenticationController.checkSession();
 
     }
@@ -43,7 +44,6 @@ public class LoginActivity extends AppCompatActivity implements IView {
         loginButton = (Button) findViewById(R.id.button_login);
         registerButton = (Button) findViewById(R.id.button_register);
 
-        userAuthenticationController = new UserAuthenticationController(this, this);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
