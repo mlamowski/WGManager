@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements IView{
         //Controller wird erstellt
         userController = new UserController(this, this);
 
-        userName_view.setText("Hallo " + userController.getCurrentUserName());
+        userName_view.setText("Hallo " + userController.getCurrentUserName() + " !");
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +65,8 @@ public class MainActivity extends AppCompatActivity implements IView{
         groupPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userController.loadNewPage(GroupActivity.class);
+
+                userController.checkGroupSize();
             }
         });
 

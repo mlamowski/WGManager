@@ -52,5 +52,9 @@ public class CurrentUser implements ICurrentUser{
         user.setUsername(username);
     }
 
+    public void createGroup(String groupName) {
+        user.setGroup(groupName);
+    }
+
 
 }

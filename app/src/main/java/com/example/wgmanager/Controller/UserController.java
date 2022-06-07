@@ -4,9 +4,12 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.example.wgmanager.Model.CurrentUser;
+import com.example.wgmanager.Model.User;
+import com.example.wgmanager.View.GroupActivity;
 import com.example.wgmanager.View.IView;
 import com.example.wgmanager.View.LoginActivity;
 import com.example.wgmanager.View.MainActivity;
+import com.example.wgmanager.View.NoGroupActivity;
 
 public class UserController implements IController {
 
@@ -52,9 +55,9 @@ public class UserController implements IController {
 
     public void checkPasswordOnChange(String toString, String toString1, String toString2) {
 
-        if(toString.equals(toString1)) {
+        if (toString.equals(toString1)) {
 
-            if(toString.equals(currentUser.retrieveUser().getPassword())) {
+            if (toString.equals(currentUser.retrieveUser().getPassword())) {
                 currentUser.updatePassword(toString2);
                 loadNewPage(MainActivity.class);
                 View.showUserDetails("PW wurde geändert, neues PW ist " + currentUser.retrieveUser().getPassword());
@@ -74,4 +77,34 @@ public class UserController implements IController {
 
         return;
     }
+
+    public void checkGroupSize() {
+        if (currentUser.retrieveUser().getGroup() == null) {
+            loadNewPage(NoGroupActivity.class);
+
+        } else {
+            loadNewPage(GroupActivity.class);
+        }
+    }
+
+    public String getGroupName() {
+        return currentUser.retrieveUser().getGroup().getGroupName();
+    }
+
+    public String getGroupMember() {
+        String memberString = "";
+        for (User user : currentUser.retrieveUser().getGroup().getMember()) {
+            memberString += user.getUsername();
+        }
+        return memberString;
+
+    }
+
+    public void createGroup(String toString){
+        currentUser.createGroup(toString);
+        loadNewPage(MainActivity.class);
+        View.showUserDetails("Gruppe wurde erstellt, neue Gruppe heisst " + currentUser.retrieveUser().getGroup().getGroupName());
+    }
 }
+
+

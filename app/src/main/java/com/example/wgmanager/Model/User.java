@@ -13,7 +13,7 @@ public class User {
         this.email = email;
         this.username = username;
         this.password = password;
-        group = new Group(groupName, this);
+        this.group = new Group(groupName, this);
 
     }
 
@@ -60,7 +60,8 @@ public class User {
         return group;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setGroup(String groupName) {
+
+        this.group = new Group(groupName, this);
     }
 }
