@@ -19,6 +19,7 @@ public class UserActivity extends AppCompatActivity implements IView {
     UserController userController;
 
     Button button_changePassword;
+    Button button_changeName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +29,24 @@ public class UserActivity extends AppCompatActivity implements IView {
         userName_testview = (TextView) findViewById(R.id.textView2);
 
         button_changePassword = (Button) findViewById(R.id.button_changepw);
+        button_changeName = (Button) findViewById(R.id.button_changename);
 
         //Controller wird erstellt
         userController = new UserController(this, this);
 
-        userName_testview.setText(userController.getCurrentUserName());
+        userName_testview.setText("Möchtest du dein Passwort oder Username ändern? ");
 
         button_changePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 userController.loadNewPage(ChangePasswordActivity.class);
+            }
+        });
+
+        button_changeName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userController.loadNewPage(ChangeUsernameActivity.class);
             }
         });
 

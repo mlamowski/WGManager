@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WGManager">
         <activity
+            android:name=".View.ChangeUsernameActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.ChangePasswordActivity"
             android:exported="false" />
         <activity

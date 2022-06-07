@@ -66,4 +66,12 @@ public class UserController implements IController {
         View.showUserDetails("Hat nicht funktioniert");
 
     }
+
+    public void checkUsernameOnChange(String toString) {
+        currentUser.updateUsername(toString);
+        loadNewPage(MainActivity.class);
+        View.showUserDetails("Username wurde geändert, neuer Username ist " + currentUser.retrieveUser().getUsername());
+
+        return;
+    }
 }

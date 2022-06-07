@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements IView{
         //Controller wird erstellt
         userController = new UserController(this, this);
 
-        userName_view.setText(userController.getCurrentUserName());
+        userName_view.setText("Hallo " + userController.getCurrentUserName());
 
 
         button.setOnClickListener(new View.OnClickListener() {
