@@ -7,12 +7,22 @@ public class User {
     private String email;
     private String username;
     private String password;
+    private Group group;
 
-    public User(String username, String password) {
+    public User(String username, String password, String groupName) {
         this.email = email;
         this.username = username;
         this.password = password;
+        group = new Group(groupName, this);
+
     }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+        this.group = null;
+    }
+
 
     public String getEmail() {
         return email;
@@ -44,5 +54,13 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
     }
 }

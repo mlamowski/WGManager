@@ -30,6 +30,20 @@ public class CurrentUser implements ICurrentUser{
         //Aktueller User geupdatet
     }
 
+
+    //Für Login, Group hat einen fiktiven GroupName
+    @Override
+    public void createUserFromData(String username, String password, String groupName) {
+        user = new User(username, password, groupName);
+
+    }
+
+    //Für Registrierung, Group = null
+    @Override
+    public void createNewUser(String username, String password) {
+        user = new User(username, password);
+    }
+
     public void updatePassword(String password) {
         user.setPassword(password);
     }
@@ -38,8 +52,5 @@ public class CurrentUser implements ICurrentUser{
         user.setUsername(username);
     }
 
-    public void createUser(String username, String password) {
-        user = new User(username, password);
-    }
 
 }

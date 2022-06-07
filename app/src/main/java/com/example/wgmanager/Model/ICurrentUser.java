@@ -6,5 +6,7 @@ public interface ICurrentUser {
 
     public void updateUser();
 
-    public void createUser(String username, String password);
+    public void createUserFromData(String username, String password,String groupName);
+    public void createNewUser(String username, String password);
+
 }

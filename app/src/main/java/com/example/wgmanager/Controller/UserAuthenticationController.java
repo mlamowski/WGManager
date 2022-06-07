@@ -22,7 +22,7 @@ public class UserAuthenticationController implements IController {
         if(validateService.validateLogin(username, password)) {
 
             //TODO: Nicht neu erstellen, sondern nach usernamen suchen.
-            currentUser.createUser(username, password);
+            currentUser.createUserFromData(username, password, "Heftige Gruppe");
 
             sessionService.saveSession(currentUser.retrieveUser());
 
@@ -42,7 +42,7 @@ public class UserAuthenticationController implements IController {
     public void onRegister(String username, String password, Class activityClass) {
         if(validateService.validateRegister(username, password)) {
 
-            currentUser.createUser(username, password);
+            currentUser.createNewUser(username, password);
             sessionService.saveSession(currentUser.retrieveUser());
             loadNewPage(activityClass);
             updateView("Registrierung erfolgreich, willkommen " + currentUser.retrieveUser().getUsername());
@@ -56,7 +56,7 @@ public class UserAuthenticationController implements IController {
 
         if(username != null) {
             //TODO: Nicht neu erstellen, sondern nach usernamen suchen.
-            currentUser.createUser(username, "password");
+            currentUser.createNewUser(username, "password");
             loadNewPage(MainActivity.class);
         }
     }
