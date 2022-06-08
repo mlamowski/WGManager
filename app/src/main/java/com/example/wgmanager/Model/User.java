@@ -1,5 +1,7 @@
 package com.example.wgmanager.Model;
 
+import java.util.ArrayList;
+
 public class User {
 
     //TODO: Group, Event etc einfügen
@@ -8,6 +10,7 @@ public class User {
     private String username;
     private String password;
     private Group group;
+    private ArrayList<Event> events = new ArrayList<>();
 
     public User(String username, String password, String groupName) {
         this.email = email;
@@ -63,5 +66,13 @@ public class User {
     public void setGroup(String groupName) {
 
         this.group = new Group(groupName, this);
+    }
+
+    public ArrayList<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(Event event) {
+        events.add(event);
     }
 }

@@ -34,4 +34,9 @@ public class EventController implements IController {
     public void updateView(String message) {
 
     }
+
+    public void addEntry(){
+        //Event event = new Event();
+        //currentUser.retrieveUser().setEvents();
+    }
 }
